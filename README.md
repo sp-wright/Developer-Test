@@ -76,7 +76,6 @@ const reformat = (str) => {
 
 };
 reformat('liMeSHArp DeveLoper TEST');
-
 ```
 
 ###### If we type in our console your function and reformat("liMeSHArp DeveLoper TEST") then the result should be Lmshrp dvlpr tst
@@ -97,6 +96,35 @@ next_binary_number([1, 0]); // [1,1]
 ```
 
 Your solution:
+
+```
+const next_binary_number = (b_num) => {
+
+    //if the number at the end of the array = 1 enter into the for loop
+    if (b_num[b_num.length-1] === 1){
+
+        //initiate a for loop starting from the end value working towards the first
+        for (let i = b_num.length-1; i >= 0; i--){
+            //if the value = 0, set the value to 1 and break the loop
+            if (b_num[i] === 0){
+                b_num[i] = 1;
+                break;
+            };
+            //if the loop had found no 0's pop the last 1 off the end of the array and replace it with 2 0's
+            if (i === 0){
+                b_num.pop();
+                b_num = [...b_num,0, 0];
+            };
+        };
+    //if the value is 0 change it to 1
+    } else{
+        b_num[b_num.length-1] = 1;
+    };
+    //return array
+    return b_num;
+};
+next_binary_number([1,0,1,1])
+```
 
 ###### If we type in our console your function and next_binary_number([1,0,0,0,0,0,0,0,0,1]) then the result should look like 1,0,0,0,0,0,0,0,1,0 (or as an array).
 
