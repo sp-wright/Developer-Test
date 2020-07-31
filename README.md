@@ -47,6 +47,38 @@ reformat('liMeSHArp DeveLoper TEST'); //Lmshrp dvlpr tst
 
 Your solution:
 
+```
+const reformat = (str) => {
+    //set array of vowels and other function scoped variables
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let firstChar = true;
+    let outputString = '';
+
+    //convert the string lowercase and split it into array of substrings
+    splitStr = str.toLowerCase().split('');
+
+    //map over the array of single characters
+    splitStr.map((char) => {
+        //uses the vowel array to check it is not a vowel
+        if (!vowels.some(v => char === v)){
+            //if it is the first character it capitalises the character else it outputs the string
+            if (firstChar){
+                outputString = `${outputString}${char.toUpperCase()}`;
+                firstChar = false;
+            }else {
+                 outputString = `${outputString}${char}`;
+            };
+        };
+    });
+
+    //return the string
+    return outputString;
+
+};
+reformat('liMeSHArp DeveLoper TEST');
+
+```
+
 ###### If we type in our console your function and reformat("liMeSHArp DeveLoper TEST") then the result should be Lmshrp dvlpr tst
 
 ### Task 3 (optional, for bonus points):
